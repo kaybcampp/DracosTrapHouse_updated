@@ -1,0 +1,315 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Ensure even spacing and link styling is consistent */
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+/* Remove hover effect from cart-link */
+.nav-links a:not(.cart-link)::before, 
+.nav-links a:not(.cart-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.cart-link)::before {
+    top: 0;
+}
+
+.nav-links a:not(.cart-link)::after {
+    bottom: 0;
+}
+
+.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::after {
+    transform: scaleX(1);
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 15;
+}
+
+/* Cart Icon Hover - Custom Effect */
+.cart-link:hover .cart-icon {
+    filter: drop-shadow(0 0 10px #0f0); /* Outline the shape of the cat and cart */
+    animation: cart-move 0.5s infinite linear;
+}
+
+/* Rocking effect */
+@keyframes cart-move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.nav-links .cart-link .cart-badge {
+    display: flex; /* Force badge to show */
+    position: absolute;
+    top: -10px;
+    right: 95px;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    z-index: 15;
+}
+
+/* Add to Cart Button Styles */
+.buy-now {
+    background-color: #0f0; /* Set background color to green */
+    color: #000; /* Set text color to black for contrast */
+    padding: 0.75em 1.5em; /* Adjust padding for a balanced look */
+    border: none;
+    border-radius: 5px; /* Rounded corners for a sleek look */
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition on hover */
+    text-align: center;
+    display: inline-block;
+}
+
+/* Hover Effect */
+.buy-now:hover {
+    background-color: lime; /* Lighter green on hover */
+    transform: scale(1.05); /* Slight scaling effect for emphasis */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Green glow shadow effect */
+    color: #000; /* Maintain text color on hover */
+}
+
+/* Product Section */
+.product-section {
+    padding: 8em 1em;
+    text-align: center;
+    background-color: transparent;
+    color: #fff;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2em;
+}
+
+/* Main Product Image */
+.product-main-image img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    margin-bottom: 1em;
+}
+
+.product-main-image img:hover {
+    transform: scale(1.05);
+    filter: brightness(70%);
+}
+
+/* Thumbnails */
+.product-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.product-thumbnails img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.product-thumbnails img:hover {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+/* Product Details */
+.product-details {
+    text-align: left;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.product-details h1 {
+    font-size: 2em;
+    color: #0f0;
+    margin-bottom: 0.5em;
+}
+
+.product-details .price {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.product-details .free-shipping {
+    font-size: 1em;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+.product-details .amazon-rating {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin-top: 1em;
+}
+
+.product-details p, .product-details ul {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #aaa;
+}
+
+.product-details ul {
+    list-style-type: square;
+    margin: 1em 0;
+    padding-left: 1.5em;
+}
+
+.product-details ul li {
+    font-size: 1em;
+    color: #aaa;
+    margin-bottom: 0.5em;
+}
+
+/* Quantity Selection */
+.product-details label {
+    display: block;
+    font-size: 1em;
+    color: #fff;
+    margin-top: 1em;
+}
+
+.product-details input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin: 0.5em 0 1em;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: #0f0;
+    color: #000;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: lime;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

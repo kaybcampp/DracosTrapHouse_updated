@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - DracosTrapHouse</title>
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/privacy-policy.css">
+</head>
+<body>
+    <!-- Matrix Background Animation -->
+    <div class="matrix-bg"></div>
+
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Privacy Policy Section -->
+    <section class="privacy-section">
+        <h1>Privacy Policy</h1>
+        <div class="privacy-content">
+            <h2>Introduction</h2>
+            <p>Your privacy is important to us. This Privacy Policy outlines how we collect, use, and protect your information when you interact with DracosTrapHouse.</p>
+            
+            <h2>Information We Collect</h2>
+            <p>We may collect the following types of information:</p>
+            <ul>
+                <li>Personal details such as name, email address, and contact information when you fill out forms or make purchases.</li>
+                <li>Usage data such as browser type, IP address, and pages visited.</li>
+            </ul>
+            
+            <h2>How We Use Your Information</h2>
+            <p>Your information is used to:</p>
+            <ul>
+                <li>Process orders and provide customer support.</li>
+                <li>Improve our website and services.</li>
+                <li>Send promotional emails and updates (with your consent).</li>
+            </ul>
+            
+            <h2>Sharing Your Information</h2>
+            <p>We do not sell or rent your personal information. However, we may share your data with third-party services to process payments or analyze website usage.</p>
+            
+            <h2>Data Security</h2>
+            <p>We implement robust security measures to protect your data from unauthorized access, alteration, or destruction.</p>
+            
+            <h2>Your Rights</h2>
+            <p>You have the right to access, update, or delete your personal information. Contact us at <strong>dracostraphouse@gmail.com</strong> for assistance.</p>
+            
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with the last updated date.</p>
+            
+            <h2>Contact Us</h2>
+            <p>If you have any questions or concerns about our Privacy Policy, please reach out to us at <strong>dracostraphouse@gmail.com</strong>.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DracosTrapHouse. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to Dynamically Load Navigation -->
+    <script>
+        async function includeHTML() {
+            const placeholder = document.getElementById("nav-placeholder");
+            try {
+                const response = await fetch("assets/html/nav.html");
+                if (response.ok) {
+                    placeholder.innerHTML = await response.text();
+
+                    // Reattach navigation menu behavior after loading
+                    addHamburgerMenuBehavior();
+                } else {
+                    console.error("Failed to load nav.html");
+                }
+            } catch (error) {
+                console.error("Error loading navigation:", error);
+            }
+        }
+
+        function addHamburgerMenuBehavior() {
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+            if (hamburgerMenu && navLinks) {
+                hamburgerMenu.addEventListener('click', () => {
+                    navLinks.classList.toggle('nav-active');
+                    hamburgerMenu.classList.toggle('toggle');
+                });
+            }
+        }
+
+        includeHTML();
+    </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+p {
+    color: white;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+    overflow: hidden;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 3em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.hero img {
+    max-width: 50%;
+    height: auto;
+    filter: brightness(0.8);
+    margin-bottom: 0.5em;
+}
+
+.hero h1 {
+    font-size: 2em;
+    margin: 0.5em 0;
+}
+
+.hero p {
+    font-size: 1em;
+    color: #aaa;
+}
+
+@media (min-width: 768px) {
+    .hero img {
+        max-width: 30%;
+    }
+    .hero h1 {
+        font-size: 3em;
+    }
+    .hero p {
+        font-size: 1.2em;
+    }
+}
+
+/* About Section */
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 1em;
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    margin: 2em auto;
+    max-width: 800px;
+}
+
+.about-content h2 {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+.about-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 1.5em;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    color: #0f0;
+    font-size: 0.9rem;
+}
+
+/* Glitch effect */
+.glitch {
+    color: #0f0;
+    font-size: 2.5em;
+    position: relative;
+    display: inline-block;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+}
+
+a {
+    color: #0f0;
+}

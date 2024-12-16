@@ -1,0 +1,2602 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links .cart-link .cart-badge {
+    display: flex; /* Force badge to show */
+    position: absolute;
+    top: -10px;
+    right: 95px;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    z-index: 15;
+}
+
+/* Ensure even spacing and link styling is consistent */
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+/* Remove hover effect from cart-link */
+.nav-links a:not(.cart-link)::before, 
+.nav-links a:not(.cart-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.cart-link)::before {
+    top: 0;
+}
+
+.nav-links a:not(.cart-link)::after {
+    bottom: 0;
+}
+
+.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::after {
+    transform: scaleX(1);
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 15;
+}
+
+/* Cart Icon Hover - Custom Effect */
+.cart-link:hover .cart-icon {
+    filter: drop-shadow(0 0 10px #0f0); /* Outline the shape of the cat and cart */
+    animation: cart-move 0.5s infinite linear;
+}
+
+/* Rocking effect */
+@keyframes cart-move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* For smaller screens, adjust the hamburger menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 20;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1em;
+    }
+
+    .nav-links a {
+        margin: 0.5em 0;
+    }
+
+    .nav-active .nav-links {
+        display: flex;
+        max-height: 500px;
+    }
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 3em 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.hero img {
+    max-width: 50%;
+    height: auto;
+    filter: brightness(0.8);
+    margin-bottom: 0.5em;
+}
+
+.hero h1 {
+    font-size: 2em;
+    margin: 0.5em 0;
+}
+
+.hero p {
+    font-size: 1em;
+    color: #aaa;
+}
+
+@media (min-width: 768px) {
+    .hero img {
+        max-width: 30%;
+    }
+    .hero h1 {
+        font-size: 3em;
+    }
+    .hero p {
+        font-size: 1.2em;
+    }
+}
+
+/* About Section */
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 1em;
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    margin: 2em auto;
+    max-width: 800px;
+}
+
+.about-content h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+
+.about-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 1.5em;
+}
+
+.about-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5em;
+}
+
+.about-image {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.5);
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Glitch effect */
+.glitch {
+    color: #0f0;
+    font-size: 2.5em;
+    position: relative;
+    display: inline-block;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+}
+
+a {
+    color: #0f0;
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Ensure even spacing and link styling is consistent */
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+/* Remove hover effect from cart-link */
+.nav-links a:not(.cart-link)::before, 
+.nav-links a:not(.cart-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.cart-link)::before {
+    top: 0;
+}
+
+.nav-links a:not(.cart-link)::after {
+    bottom: 0;
+}
+
+.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::after {
+    transform: scaleX(1);
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 15;
+}
+
+/* Cart Icon Hover - Custom Effect */
+.cart-link:hover .cart-icon {
+    filter: drop-shadow(0 0 10px #0f0); /* Outline the shape of the cat and cart */
+    animation: cart-move 0.5s infinite linear;
+}
+
+/* Rocking effect */
+@keyframes cart-move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.nav-links .cart-link .cart-badge {
+    display: flex; /* Force badge to show */
+    position: absolute;
+    top: -10px;
+    right: 95px;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    z-index: 15;
+}
+
+/* Hamburger menu for mobile */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 20;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1em;
+    }
+
+    .nav-links a {
+        margin: 0.5em 0;
+    }
+
+    .nav-active .nav-links {
+        display: flex;
+        max-height: 500px;
+    }
+
+    .hamburger-menu.toggle .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger-menu.toggle .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.toggle .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Contact Section */
+.contact-section {
+    margin-top: 100px;
+    padding: 2em;
+    text-align: center;
+    background-color: transparent; /* Transparent background to show matrix */
+}
+
+.contact-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+}
+
+.contact-section p {
+    font-size: 1.2em;
+    margin-bottom: 2em;
+    color: #aaa;
+}
+
+.contact-form-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.contact-form {
+    background-color: #111;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: #fff;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 1.5em;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+
+.submit-btn {
+    background-color: #0f0;
+    color: #000;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-info {
+    max-width: 400px;
+    width: 100%;
+    margin-left: 2em;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.2);
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Ensure even spacing and link styling is consistent */
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+/* Remove hover effect from cart-link */
+.nav-links a:not(.cart-link)::before, 
+.nav-links a:not(.cart-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.cart-link)::before {
+    top: 0;
+}
+
+.nav-links a:not(.cart-link)::after {
+    bottom: 0;
+}
+
+.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::after {
+    transform: scaleX(1);
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* Cart Badge */
+.cart-badge {
+    position: absolute;
+    top: -8px; /* Adjust this value to move the badge up */
+    right: -8px; /* Adjust this value to move the badge closer to the icon's top right */
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    display: none; /* Hidden by default */
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 15;
+}
+
+/* Cart Icon Hover - Custom Effect */
+.cart-link:hover .cart-icon {
+    filter: drop-shadow(0 0 10px #0f0); /* Outline the shape of the cat and cart */
+    animation: cart-move 0.5s infinite linear;
+}
+
+/* Rocking effect */
+@keyframes cart-move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.nav-links .cart-link .cart-badge {
+    display: flex; /* Force badge to show */
+    position: absolute;
+    top: -10px;
+    right: 95px;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    z-index: 15;
+}
+
+/* Hamburger menu for mobile */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 20;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1em;
+    }
+
+    .nav-links a {
+        margin: 0.5em 0;
+    }
+
+    .nav-active .nav-links {
+        display: flex;
+        max-height: 500px;
+    }
+
+    .hamburger-menu.toggle .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger-menu.toggle .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-menu.toggle .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Developer Section */
+.developer-section {
+    padding: 5em 1em;
+    text-align: center;
+    background-color: transparent; /* Transparent to show the matrix */
+    color: #fff;
+    min-height: 100vh;
+}
+
+.developer-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+}
+
+.developer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.developer-card {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.developer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 255, 0, 0.4);
+}
+
+.developer-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.developer-card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.5);
+}
+
+.developer-card h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+}
+
+.developer-card p {
+    font-size: 1em;
+    color: #aaa;
+    margin-bottom: 1em;
+}
+
+.developer-card a {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.developer-card a:hover {
+    color: lime;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 15;
+}
+
+.cart-badge {
+    display: flex;
+    position: absolute;
+    top: -10px;
+    right: 95px;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    z-index: 15;
+}
+
+/* Back to Shop Button */
+.back-to-shop {
+    display: inline-block;
+    margin-top: 2em;
+    padding: 0.75em 1.5em;
+    background-color: #0f0; /* Green background */
+    color: #000; /* Black text */
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth hover transition */
+}
+
+.back-to-shop:hover {
+    background-color: lime; /* Lighter green on hover */
+    transform: scale(1.05); /* Slight scale-up on hover */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Green glow shadow */
+    color: #000; /* Maintain black text color */
+}
+
+/* Product Section */
+.product-section {
+    padding: 8em 1em;
+    text-align: center;
+    background-color: transparent;
+    color: #fff;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2em;
+}
+
+/* Main Product Image */
+.product-main-image img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    margin-bottom: 1em;
+}
+
+.product-main-image img:hover {
+    transform: scale(1.05);
+    filter: brightness(70%);
+}
+
+/* Thumbnails */
+.product-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.product-thumbnails img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.product-thumbnails img:hover {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+/* Product Details */
+.product-details {
+    text-align: left;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.product-details h1 {
+    font-size: 2em;
+    color: #0f0;
+    margin-bottom: 0.5em;
+}
+
+.product-details .price {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.product-details .free-shipping {
+    font-size: 1em;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+.product-details .amazon-rating {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin-top: 1em;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Ensure even spacing and link styling is consistent */
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+/* Remove hover effect from cart-link */
+.nav-links a:not(.cart-link)::before, 
+.nav-links a:not(.cart-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.cart-link)::before {
+    top: 0;
+}
+
+.nav-links a:not(.cart-link)::after {
+    bottom: 0;
+}
+
+.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::after {
+    transform: scaleX(1);
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 15;
+}
+
+/* Cart Icon Hover - Custom Effect */
+.cart-link:hover .cart-icon {
+    filter: drop-shadow(0 0 10px #0f0); /* Outline the shape of the cat and cart */
+    animation: cart-move 0.5s infinite linear;
+}
+
+/* Rocking effect */
+@keyframes cart-move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.nav-links .cart-link .cart-badge {
+    display: flex; /* Force badge to show */
+    position: absolute;
+    top: -10px;
+    right: 95px;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    z-index: 15;
+}
+
+/* Add to Cart Button Styles */
+.buy-now {
+    background-color: #0f0; /* Set background color to green */
+    color: #000; /* Set text color to black for contrast */
+    padding: 0.75em 1.5em; /* Adjust padding for a balanced look */
+    border: none;
+    border-radius: 5px; /* Rounded corners for a sleek look */
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition on hover */
+    text-align: center;
+    display: inline-block;
+}
+
+/* Hover Effect */
+.buy-now:hover {
+    background-color: lime; /* Lighter green on hover */
+    transform: scale(1.05); /* Slight scaling effect for emphasis */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Green glow shadow effect */
+    color: #000; /* Maintain text color on hover */
+}
+
+/* Product Section */
+.product-section {
+    padding: 8em 1em;
+    text-align: center;
+    background-color: transparent;
+    color: #fff;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2em;
+}
+
+/* Main Product Image */
+.product-main-image img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    margin-bottom: 1em;
+}
+
+.product-main-image img:hover {
+    transform: scale(1.05);
+    filter: brightness(70%);
+}
+
+/* Thumbnails */
+.product-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.product-thumbnails img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.product-thumbnails img:hover {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+/* Product Details */
+.product-details {
+    text-align: left;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.product-details h1 {
+    font-size: 2em;
+    color: #0f0;
+    margin-bottom: 0.5em;
+}
+
+.product-details .price {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.product-details .free-shipping {
+    font-size: 1em;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+.product-details .amazon-rating {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin-top: 1em;
+}
+
+.product-details p, .product-details ul {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #aaa;
+}
+
+.product-details ul {
+    list-style-type: square;
+    margin: 1em 0;
+    padding-left: 1.5em;
+}
+
+.product-details ul li {
+    font-size: 1em;
+    color: #aaa;
+    margin-bottom: 0.5em;
+}
+
+/* Quantity Selection */
+.product-details label {
+    display: block;
+    font-size: 1em;
+    color: #fff;
+    margin-top: 1em;
+}
+
+.product-details input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin: 0.5em 0 1em;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: #0f0;
+    color: #000;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: lime;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+/* Back to Shop Button */
+.back-to-shop {
+    display: inline-block;
+    margin-top: 2em;
+    padding: 0.75em 1.5em;
+    background-color: #0f0;
+    color: #000;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-to-shop:hover {
+    background-color: lime;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    text-decoration: none;
+    color: #000;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+.nav-links a:not(.cart-link)::before, 
+.nav-links a:not(.cart-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.cart-link)::before {
+    top: 0;
+}
+
+.nav-links a:not(.cart-link)::after {
+    bottom: 0;
+}
+
+.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::after {
+    transform: scaleX(1);
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* Privacy Section */
+.privacy-section {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 2em;
+    background-color: #111;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.privacy-section h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0f0;
+}
+
+.privacy-section h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #fff;
+    border-bottom: 2px solid #0f0;
+    padding-bottom: 0.5em;
+}
+
+.privacy-section p, .privacy-section ul {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+.privacy-section ul {
+    padding-left: 1.5em;
+}
+
+.privacy-section ul li {
+    margin-bottom: 0.5em;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    color: #0f0;
+    font-size: 0.9rem;
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Ensure even spacing and link styling is consistent */
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+/* Remove hover effect from cart-link */
+.nav-links a:not(.cart-link)::before, 
+.nav-links a:not(.cart-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.cart-link)::before {
+    top: 0;
+}
+
+.nav-links a:not(.cart-link)::after {
+    bottom: 0;
+}
+
+.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::after {
+    transform: scaleX(1);
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 15;
+}
+
+/* Cart Icon Hover - Custom Effect */
+.cart-link:hover .cart-icon {
+    filter: drop-shadow(0 0 10px #0f0); /* Outline the shape of the cat and cart */
+    animation: cart-move 0.5s infinite linear;
+}
+
+/* Rocking effect */
+@keyframes cart-move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.nav-links .cart-link .cart-badge {
+    display: flex; /* Force badge to show */
+    position: absolute;
+    top: -10px;
+    right: 95px;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    z-index: 15;
+}
+
+/* Add to Cart Button Styles */
+.buy-now {
+    background-color: #0f0; /* Set background color to green */
+    color: #000; /* Set text color to black for contrast */
+    padding: 0.75em 1.5em; /* Adjust padding for a balanced look */
+    border: none;
+    border-radius: 5px; /* Rounded corners for a sleek look */
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition on hover */
+    text-align: center;
+    display: inline-block;
+}
+
+/* Hover Effect */
+.buy-now:hover {
+    background-color: lime; /* Lighter green on hover */
+    transform: scale(1.05); /* Slight scaling effect for emphasis */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Green glow shadow effect */
+    color: #000; /* Maintain text color on hover */
+}
+
+/* Product Section */
+.product-section {
+    padding: 8em 1em;
+    text-align: center;
+    background-color: transparent;
+    color: #fff;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2em;
+}
+
+/* Main Product Image */
+.product-main-image img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    margin-bottom: 1em;
+}
+
+.product-main-image img:hover {
+    transform: scale(1.05);
+    filter: brightness(70%);
+}
+
+/* Thumbnails */
+.product-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.product-thumbnails img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.product-thumbnails img:hover {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+/* Product Details */
+.product-details {
+    text-align: left;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.product-details h1 {
+    font-size: 2em;
+    color: #0f0;
+    margin-bottom: 0.5em;
+}
+
+.product-details .price {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.product-details .free-shipping {
+    font-size: 1em;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+.product-details .amazon-rating {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin-top: 1em;
+}
+
+.product-details p, .product-details ul {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #aaa;
+}
+
+.product-details ul {
+    list-style-type: square;
+    margin: 1em 0;
+    padding-left: 1.5em;
+}
+
+.product-details ul li {
+    font-size: 1em;
+    color: #aaa;
+    margin-bottom: 0.5em;
+}
+
+/* Quantity Selection */
+.product-details label {
+    display: block;
+    font-size: 1em;
+    color: #fff;
+    margin-top: 1em;
+}
+
+.product-details input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin: 0.5em 0 1em;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    text-align: center;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: #0f0;
+    color: #000;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: lime;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Ensure even spacing and link styling is consistent */
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+/* Remove hover effect from cart-link */
+.nav-links a:not(.cart-link)::before, 
+.nav-links a:not(.cart-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.cart-link)::before {
+    top: 0;
+}
+
+.nav-links a:not(.cart-link)::after {
+    bottom: 0;
+}
+
+.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::after {
+    transform: scaleX(1);
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 15;
+}
+
+/* Cart Icon Hover - Custom Effect */
+.cart-link:hover .cart-icon {
+    filter: drop-shadow(0 0 10px #0f0);
+    animation: cart-move 0.5s infinite linear;
+}
+
+/* Rocking effect */
+@keyframes cart-move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.cart-link {
+    position: relative;
+}
+
+.nav-links .cart-link .cart-badge {
+    display: flex;
+    position: absolute;
+    top: -10px;
+    right: 95px;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    z-index: 15;
+}
+
+/* Add to Cart Button Styles */
+.buy-now {
+    background-color: #0f0;
+    color: #000;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Hover Effect */
+.buy-now:hover {
+    background-color: lime;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    color: #000;
+}
+
+/* Product Section */
+.product-section {
+    padding: 8em 1em;
+    text-align: center;
+    background-color: transparent;
+    color: #fff;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2em;
+}
+
+/* Main Product Image */
+.product-main-image img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    margin-bottom: 1em;
+}
+
+.product-main-image img:hover {
+    transform: scale(1.05);
+    filter: brightness(70%);
+}
+
+/* Thumbnails */
+.product-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.product-thumbnails img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.product-thumbnails img:hover {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+/* Product Details */
+.product-details {
+    text-align: left;
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.product-details h1 {
+    font-size: 2em;
+    color: #0f0;
+    margin-bottom: 0.5em;
+}
+
+.product-details .price {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.product-details .free-shipping {
+    font-size: 1em;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+}
+
+.product-details .amazon-rating {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    gap: 0.2em;
+}
+
+.product-details .amazon-rating span {
+    color: #fff;
+}
+
+/* Back to Shop Button */
+.product-details .back-to-shop {
+    display: inline-block;
+    margin-top: 2em;
+    padding: 0.75em 1.5em;
+    background-color: #0f0 !important; /* Ensure green background */
+    color: #000 !important; /* Ensure black text */
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: none !important; /* Remove any conflicting shadow */
+}
+
+/* Hover Effect */
+.product-details .back-to-shop:hover {
+    background-color: lime !important;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5) !important;
+    text-decoration: none !important;
+    color: #000 !important;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Ensure even spacing and link styling is consistent */
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+/* Remove hover effect from cart-link */
+.nav-links a:not(.cart-link)::before, 
+.nav-links a:not(.cart-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.cart-link)::before {
+    top: 0;
+}
+
+.nav-links a:not(.cart-link)::after {
+    bottom: 0;
+}
+
+.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::after {
+    transform: scaleX(1);
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 15;
+}
+
+/* Cart Icon Hover - Custom Effect */
+.cart-link:hover .cart-icon {
+    filter: drop-shadow(0 0 10px #0f0); /* Outline the shape of the cat and cart */
+    animation: cart-move 0.5s infinite linear;
+}
+
+/* Rocking effect */
+@keyframes cart-move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.nav-links .cart-link .cart-badge {
+    display: flex; /* Force badge to show */
+    position: absolute;
+    top: -10px;
+    right: 95px;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    z-index: 15;
+}
+
+/* Shop Page */
+.shop-section {
+    padding: 3em 1em;
+    background-color: transparent;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.shop-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5em;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Product image */
+.product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 2px solid #0f0;
+}
+
+/* Product info */
+.product-info {
+    padding: 1.5em;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 0.5em;
+}
+
+.product-info p {
+    font-size: 1em;
+    color: #aaa;
+    margin-bottom: 1em;
+}
+
+/* Buy Now Button with Hover Effect */
+.buy-now {
+    background-color: #0f0;
+    color: #000;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buy-now:hover {
+    transform: scale(0.95); /* Shrinks button slightly on hover */
+    box-shadow: 0 0 15px 5px rgba(0, 255, 0, 0.8); /* Adds a green glow */
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+}
+
+/* Navigation bar */
+nav {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex: 1;
+}
+
+nav a {
+    color: rgb(205, 205, 205);
+    padding: 0.5em 1em;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    line-height: 1.5em;
+}
+
+.nav-links a:not(.cart-link)::before, 
+.nav-links a:not(.cart-link)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0f0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-links a:not(.cart-link)::before {
+    top: 0;
+}
+
+.nav-links a:not(.cart-link)::after {
+    bottom: 0;
+}
+
+.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::after {
+    transform: scaleX(1);
+}
+
+nav a.active {
+    color: #fff;
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 15;
+}
+
+.cart-link:hover .cart-icon {
+    filter: drop-shadow(0 0 10px #0f0);
+    animation: cart-move 0.5s infinite linear;
+}
+
+@keyframes cart-move {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.nav-links .cart-link .cart-badge {
+    display: flex;
+    position: absolute;
+    top: -10px;
+    right: 95px;
+    background-color: #0f0;
+    color: #000;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.8em;
+    z-index: 15;
+}
+
+/* Terms Section */
+.terms-section {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 2em;
+    background-color: #111;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.terms-section h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0f0;
+}
+
+.terms-section h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #fff;
+    border-bottom: 2px solid #0f0;
+    padding-bottom: 0.5em;
+}
+
+.terms-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    color: #0f0;
+    font-size: 0.9rem;
+}
+
+
+/* General Mobile Optimizations */
+@media (max-width: 768px) {
+    body {
+        font-size: 90%;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 0.5em;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links a {
+        padding: 0.5em;
+    }
+
+    .hero img {
+        max-width: 80%;
+    }
+
+    .hero h1 {
+        font-size: 1.5em;
+    }
+
+    .about, .contact-section, .terms-section, .privacy-section {
+        padding: 1em;
+        font-size: 0.9em;
+    }
+
+    .product-container, .developer-grid, .product-thumbnails {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+
+    .product-details, .about-content {
+        padding: 1em;
+    }
+
+    .footer {
+        padding: 0.5em;
+        font-size: 0.8em;
+    }
+}
+
+/* Ultra Small Screens */
+@media (max-width: 480px) {
+    nav {
+        padding: 0.5em;
+    }
+
+    .hero h1 {
+        font-size: 1.2em;
+    }
+
+    .product-details h1 {
+        font-size: 1.5em;
+    }
+
+    .add-to-cart, .buy-now, .back-to-shop {
+        padding: 0.5em 1em;
+        font-size: 0.9em;
+    }
+
+    .footer {
+        font-size: 0.7em;
+    }
+}

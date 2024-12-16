@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - DracosTrapHouse</title>
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/shop-style.css">
+    <style>
+        /* Overlay for Out of Stock */
+        .out-of-stock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Darker overlay */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-radius: 5px;
+            z-index: 5;
+        }
+
+        .product-card {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Background Animation -->
+    <div class="matrix-bg"></div>
+
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Shop Section -->
+    <section class="shop-section">
+        <h1>Our Products</h1>
+        <div class="product-grid">
+            <!-- Product 1: Electric Scrub Brush (Out of Stock) -->
+            <div class="product-card">
+                <div class="out-of-stock-overlay">Out of Stock</div>
+                <img src="assets/images/electric spin white bg.jpg" alt="Product 1" class="product-image">
+                <div class="product-info">
+                    <h3>Electric Scrub Brush</h3>
+                    <p>Powerful electric scrub brush with interchangeable heads and long handle, perfect for deep cleaning bathrooms, kitchens, and tough surfaces with ease!</p>
+                    <a href="products/scrub-brush.html" class="buy-now">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product 2: Garage Paper Towel Holder -->
+            <div class="product-card">
+                <img src="assets/images/garageShelf4.jpg" alt="Product 2" class="product-image">
+                <div class="product-info">
+                    <h3>Garage Paper Towel Holder</h3>
+                    <p>Versatile garage paper towel holder with a sturdy design, built-in hooks for added storage, and a sleek finish, perfect for organizing your workspace efficiently.</p>
+                    <a href="products/garage-shelf.html" class="buy-now">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product 3: Plant Seeding Tray -->
+            <div class="product-card">
+                <img src="assets/images/plantTray1.jpg" alt="Product 3" class="product-image">
+                <div class="product-info">
+                    <h3>Plant Seeding Tray</h3>
+                    <p>Versatile plant tray perfect for indoor and outdoor use, ensuring clean and organized gardening spaces. Durable, eco-friendly, and ideal for water drainage control.</p>
+                    <a href="products/plant.html" class="buy-now">Buy Now</a>
+                </div>
+            </div>
+
+            <!-- Product 4: LED Headlamp -->
+            <div class="product-card">
+                <img src="assets/images/main1.jpeg" alt="Product 4" class="product-image">
+                <div class="product-info">
+                    <h3>LED Headlamp</h3>
+                    <p>Illuminate your surroundings with this powerful LED headlamp. Perfect for hands-free lighting in dark environments.</p>
+                    <a href="products/headlamp.html" class="buy-now">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DracosTrapHouse. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to Include Navigation -->
+    <script>
+        // Dynamically load the nav.html file
+        async function loadNav() {
+            const response = await fetch('assets/html/nav.html');
+            if (response.ok) {
+                const navHTML = await response.text();
+                document.getElementById('nav-placeholder').innerHTML = navHTML;
+
+                // Initialize the hamburger menu behavior
+                const hamburgerMenu = document.querySelector('.hamburger-menu');
+                const navLinks = document.querySelector('.nav-links');
+                if (hamburgerMenu && navLinks) {
+                    hamburgerMenu.addEventListener('click', () => {
+                        navLinks.classList.toggle('nav-active');
+                        hamburgerMenu.classList.toggle('toggle');
+                    });
+                }
+            } else {
+                console.error("Failed to load navigation.");
+            }
+        }
+        loadNav();
+    </script>
+</body>
+</html>

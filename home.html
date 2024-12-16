@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DracosTrapHouse</title>
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/style1.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Matrix Background Animation -->
+    <div class="matrix-bg"></div>
+
+    <!-- Navigation -->
+    <div data-include-html="nav.html"></div>
+
+    <!-- Home Section -->
+    <div class="hero" id="home">
+        <img src="assets/images/mainLogo.png" alt="DracosTrapHouse Logo" class="hero-logo">
+        <h1 class="glitch" data-text="DracosTrapHouse">DracosTrapHouse</h1>
+        <p>Where innovation meets hustle.</p>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>At DracosTrapHouse, we specialize in cutting-edge front-end and back-end solutions, showcasing portfolios that highlight our commitment to excellence. Our shop is more than a marketplace—it's a curated selection of products, presented in a unique way to stand out in the digital realm.</p>
+            <p>But we’re not just tech enthusiasts; we’re dedicated to making a difference. That’s why we’ve integrated a humanitarian element into our site. Donations aren’t just encouraged—they’re celebrated. Explore our dedicated section to see how your contributions spark real change and drive meaningful impact.</p>
+            <p>In a digital landscape where the ordinary meets the extraordinary, DracosTrapHouse stands as a beacon of innovation, community, and purpose. Join us on this journey, where every line of code, every purchase, and every donation contributes to a larger, grander vision.</p>
+            <p>Welcome to the trap. Welcome to the house.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DracosTrapHouse. All rights reserved.</p>
+    </footer>
+
+    <!-- Script for loading reusable navigation and toggling menu -->
+    <script>
+        async function includeHTML() {
+            const elements = document.querySelectorAll("[data-include-html]");
+            for (const el of elements) {
+                const file = el.getAttribute("data-include-html");
+                const response = await fetch(file);
+                if (response.ok) {
+                    el.innerHTML = await response.text();
+                } else {
+                    el.innerHTML = "Content not found.";
+                }
+            }
+        }
+        includeHTML();
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            navLinks.classList.toggle('nav-active');
+            hamburgerMenu.classList.toggle('toggle');
+        }
+    </script>
+</body>
+
+</html>

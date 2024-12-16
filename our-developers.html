@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Developers - DracosTrapHouse</title>
+    <link rel="stylesheet" href="assets/css/nav.css">
+    <link rel="stylesheet" href="assets/css/developers-style.css">
+</head>
+<body>
+    <!-- Matrix Background Animation -->
+    <div class="matrix-bg"></div>
+
+    <!-- Navigation -->
+    <div data-include-html="nav.html"></div>
+
+    <!-- Developer Section -->
+    <section class="developer-section">
+        <h1>Our Developers</h1>
+        <div class="developer-grid">
+            <!-- Front-End Developer Card -->
+            <div class="developer-card">
+                <img src="assets/images/pfp.png" alt="Front-end Developer" class="developer-image">
+                <h2>Front-end Developer</h2>
+                <p>Name: Radoslav A.</p>
+                <p>Portfolio: <a href="https://radoslav.site/" target="_blank">My work</a></p>
+                <p>Skills: HTML, CSS, JavaScript, React</p>
+            </div>
+
+            <!-- Back-End Developer Card -->
+            <div class="developer-card">
+                <img src="assets/images/alien1.png" alt="Back-end Developer" class="developer-image">
+                <h2>Back-end Developer</h2>
+                <p>Name: Kayb C.</p>
+                <p>Github: <a href="https://github.com/kaybcampp" target="_blank">My work</a></p>
+                <p>Email: dracostraphouse@gmail.com</p>
+                <p>Skills: C#, ASP.NET, APIs, JavaScript, Node.js, Express.js, bot development</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DracosTrapHouse. All rights reserved.</p>
+    </footer>
+
+    <!-- Script for loading reusable navigation and toggling menu -->
+    <script>
+        async function includeHTML() {
+            const elements = document.querySelectorAll("[data-include-html]");
+            for (const el of elements) {
+                const file = el.getAttribute("data-include-html");
+                const response = await fetch(file);
+                if (response.ok) {
+                    el.innerHTML = await response.text();
+                } else {
+                    el.innerHTML = "Content not found.";
+                }
+            }
+        }
+        includeHTML();
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            navLinks.classList.toggle('nav-active');
+            hamburgerMenu.classList.toggle('toggle');
+        }
+    </script>
+</body>
+</html>

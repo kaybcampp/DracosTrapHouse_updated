@@ -1,0 +1,104 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Body and general styles */
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+p {
+    color: white;
+}
+
+/* Matrix background */
+.matrix-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
+    opacity: 0.2;
+    overflow: hidden;
+}
+
+/* Privacy Section */
+.privacy-section {
+    margin-top: 120px; /* Ensure space below fixed nav */
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+    margin: 2em auto;
+    max-width: 800px;
+    padding: 2em;
+}
+
+.privacy-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    color: #0f0;
+}
+
+.privacy-section h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #fff;
+    border-bottom: 2px solid #0f0;
+    padding-bottom: 0.5em;
+}
+
+.privacy-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 1em;
+}
+
+.privacy-section ul {
+    padding-left: 1.5em;
+}
+
+.privacy-section ul li {
+    margin-bottom: 0.5em;
+    color: #ddd;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    color: #0f0;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .privacy-section {
+        margin-top: 150px; /* Extra space for smaller screens */
+        padding: 1.5em;
+    }
+
+    .privacy-section h1 {
+        font-size: 2em;
+    }
+
+    .privacy-section h2 {
+        font-size: 1.2em;
+    }
+
+    .privacy-section p {
+        font-size: 1em;
+    }
+}
