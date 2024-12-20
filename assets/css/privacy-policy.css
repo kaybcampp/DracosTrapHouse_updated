@@ -10,7 +10,9 @@ body {
     color: #fff;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures content takes full viewport height */
 }
 
 p {
@@ -30,63 +32,99 @@ p {
 
 /* Privacy Section */
 .privacy-section {
-    margin-top: 120px; /* Ensure space below fixed nav */
+    margin-top: 70px; /* Reduced margin for better fit */
+    padding: 2em 1em; /* Compact spacing while keeping readability */
     background-color: #111;
     color: #fff;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
-    margin: 2em auto;
+    margin: 1.5em auto;
     max-width: 800px;
-    padding: 2em;
+    flex: 1; /* Ensures section grows to fill available space */
 }
 
 .privacy-section h1 {
-    font-size: 2.5em;
-    margin-bottom: 1em;
-    color: #0f0;
+    font-size: 2.2em;
+    margin-bottom: 0.8em; /* Reduced spacing for better fit */
+    color: #0f0; /* Neon green heading */
 }
 
 .privacy-section h2 {
-    font-size: 1.5em;
-    margin-top: 20px;
+    font-size: 1.4em; /* Adjusted size for compactness */
+    margin-top: 1.5em;
     color: #fff;
     border-bottom: 2px solid #0f0;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.4em;
 }
 
 .privacy-section p {
-    font-size: 1.2em;
+    font-size: 1.1em; /* Reduced font size for compact layout */
     line-height: 1.6;
     color: #ddd;
-    margin-bottom: 1em;
+    margin-bottom: 0.8em; /* Reduced spacing */
 }
 
 .privacy-section ul {
-    padding-left: 1.5em;
+    padding-left: 1.2em; /* Reduced padding for compactness */
 }
 
 .privacy-section ul li {
     margin-bottom: 0.5em;
     color: #ddd;
+    font-size: 1em; /* Matches paragraph font size */
 }
 
 /* Footer */
 footer {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.8); /* Slight transparency */
     text-align: center;
-    padding: 1em;
+    padding: 1.5em; /* Increased padding for better balance */
     position: relative;
-    bottom: 0;
     width: 100%;
-    color: #0f0;
+    color: #0f0 !important; /* Neon green text */
     font-size: 0.9rem;
+    box-shadow: 0 -2px 10px rgba(0, 255, 0, 0.2); /* Subtle neon shadow */
+}
+
+footer p {
+    color: #0f0 !important; /* Explicit neon green enforcement */
+    margin: 0;
+}
+
+footer .glitch {
+    color: #0f0 !important; /* Neon green glitch effect */
+    font-size: 1.4em; /* Adjusted size for footer */
+    position: relative;
+    display: inline-block;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+}
+
+footer a {
+    color: #0f0 !important; /* Enforces neon green for links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: lime;
+    text-shadow: 0 0 5px #0f0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .privacy-section {
-        margin-top: 150px; /* Extra space for smaller screens */
+        margin-top: 90px; /* Extra space for smaller screens */
         padding: 1.5em;
     }
 

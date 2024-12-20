@@ -10,7 +10,13 @@ body {
     color: #fff;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure content takes full viewport height */
+}
+
+main {
+    flex: 1; /* Makes main content push the footer down */
 }
 
 p {
@@ -28,44 +34,40 @@ p {
     overflow: hidden;
 }
 
-/* Hero section */
+/* Hero Section */
 .hero {
     text-align: center;
-    padding: 3em 1em;
+    padding: 2.5em 1em; /* Compact spacing */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 70vh;
+    flex: 1; /* Allows the section to grow and push footer */
+    margin-top: 70px; /* Adjusted for alignment with nav bar */
 }
 
 .hero img {
-    max-width: 50%;
+    max-width: 40%;
     height: auto;
     filter: brightness(0.8);
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
+    transition: transform 0.3s ease;
+}
+
+.hero img:hover {
+    transform: scale(1.05); /* Subtle hover effect */
 }
 
 .hero h1 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin: 0.5em 0;
+    color: #0f0; /* Neon green for heading */
 }
 
 .hero p {
-    font-size: 1em;
+    font-size: 1.2em;
     color: #aaa;
-}
-
-@media (min-width: 768px) {
-    .hero img {
-        max-width: 30%;
-    }
-    .hero h1 {
-        font-size: 3em;
-    }
-    .hero p {
-        font-size: 1.2em;
-    }
+    line-height: 1.6;
 }
 
 /* About Section */
@@ -84,10 +86,10 @@ p {
 }
 
 .about-content h2 {
-    font-size: 1em;
+    font-size: 2em;
     margin-bottom: 0.5em;
-    color: rgb(255, 255, 255);
-    font-weight: 700;
+    color: #0f0; /* Matches overall theme */
+    font-weight: bold;
 }
 
 .about-content p {
@@ -101,18 +103,33 @@ p {
 footer {
     background: rgba(0, 0, 0, 0.8);
     text-align: center;
-    padding: 1em;
-    position: relative;
-    bottom: 0;
+    padding: 1.5em;
     width: 100%;
-    color: #0f0;
+    color: #0f0 !important; /* Ensures neon green text */
     font-size: 0.9rem;
+    box-shadow: 0 -2px 10px rgba(0, 255, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #0f0 !important;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: lime;
+    text-shadow: 0 0 5px #0f0;
 }
 
 /* Glitch effect */
-.glitch {
-    color: #0f0;
-    font-size: 2.5em;
+footer .glitch {
+    color: #0f0 !important;
+    font-size: 1.5em;
     position: relative;
     display: inline-block;
     animation: glitch 1s infinite;
@@ -127,6 +144,29 @@ footer {
     100% { transform: translate(0); }
 }
 
-a {
-    color: #0f0;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero img {
+        max-width: 60%;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .about {
+        padding: 1.5em 1em;
+    }
+
+    .about-content h2 {
+        font-size: 1.5em;
+    }
+
+    .about-content p {
+        font-size: 1em;
+    }
 }

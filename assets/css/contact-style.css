@@ -38,22 +38,22 @@ main {
 
 /* Contact Section */
 .contact-section {
-    margin-top: 80px; /* Adjusted for better alignment with the navigation */
+    margin-top: 70px; /* Adjusted for closer alignment with navigation */
     padding: 2em 1em;
     text-align: center;
-    background-color: transparent;
+    flex: 1; /* Ensures section grows to push the footer down */
 }
 
 .contact-section h1 {
     font-size: 2.5em;
     margin-bottom: 1em;
-    color: #0f0;
+    color: #0f0; /* Neon green heading */
 }
 
 .contact-section p {
     font-size: 1.2em;
-    margin-bottom: 2em;
-    color: #aaa;
+    margin-bottom: 1.5em;
+    color: #ddd;
     line-height: 1.6;
 }
 
@@ -65,22 +65,22 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     align-items: center;
-    justify-items: center; /* Ensures items are centered horizontally */
+    justify-items: center;
 }
 
 @media (min-width: 768px) {
     .contact-form-container {
-        grid-template-columns: 1fr 1fr; /* Split into two columns on larger screens */
+        grid-template-columns: 1fr 1fr; /* Split into two columns for larger screens */
     }
 }
 
 /* Contact Form */
 .contact-form {
     background-color: #111;
-    padding: 2em;
+    padding: 1.5em; /* Adjusted for compact spacing */
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
-    max-width: 500px;
+    max-width: 450px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -92,22 +92,22 @@ main {
     margin-bottom: 0.5em;
     color: #fff;
     font-weight: bold;
-    width: 100%; /* Aligns labels to the input width */
+    width: 100%; /* Aligns labels to input width */
     text-align: left;
 }
 
-.contact-form input, 
+.contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 0.75em;
-    margin-bottom: 1.5em;
+    margin-bottom: 1em; /* Reduced margin for compact design */
     border: 1px solid #333;
     border-radius: 5px;
     background-color: #222;
     color: #fff;
     font-size: 1em;
     resize: none; /* Prevent textarea from being resized */
-    box-sizing: border-box; /* Ensures the padding is included in width */
+    box-sizing: border-box; /* Ensures padding is included in width */
 }
 
 .contact-form textarea {
@@ -132,9 +132,9 @@ main {
 
 /* Contact Info */
 .contact-info {
-    max-width: 500px;
+    max-width: 450px;
     margin: 0 auto;
-    text-align: left;
+    text-align: center; /* Centered for better layout */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,6 +145,7 @@ main {
     color: #ddd;
     line-height: 1.6;
     text-align: center;
+    margin-bottom: 0.8em;
 }
 
 .contact-info a {
@@ -156,6 +157,33 @@ main {
 
 .contact-info a:hover {
     color: lime;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    padding: 1.5em;
+    font-size: 0.9em;
+    color: #0f0 !important; /* Ensures neon green text consistency */
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 255, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #0f0 !important; /* Enforces neon green for links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: lime;
+    text-shadow: 0 0 5px #0f0;
 }
 
 /* Responsive Adjustments */
@@ -172,21 +200,8 @@ main {
         padding: 1em;
     }
 
-    .contact-info {
-        text-align: center;
-    }
-
     .contact-info p {
         font-size: 0.9em;
     }
 }
 
-/* Footer */
-footer {
-    background: rgba(0, 0, 0, 0.8);
-    text-align: center;
-    padding: 1em;
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.7);
-    width: 100%;
-}

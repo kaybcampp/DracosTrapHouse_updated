@@ -10,6 +10,14 @@ body {
     color: #fff;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures content spans the full viewport height */
+}
+
+/* Main content area */
+main {
+    flex: 1; /* Push footer to the bottom */
 }
 
 /* Matrix background */
@@ -25,24 +33,23 @@ body {
 
 /* Developer Section */
 .developer-section {
-    padding: 4em 1em; /* Reduced padding to better utilize vertical space */
+    margin-top: 70px; /* Closer alignment with navigation */
+    padding: 2.5em 1em; /* Compact spacing */
     text-align: center;
-    background-color: transparent; /* Transparent to show the matrix */
-    color: #fff;
-    margin-top: 80px; /* Align below fixed navigation */
+    flex: 1; /* Grow to push the footer down */
 }
 
 .developer-section h1 {
     font-size: 2.5em;
     margin-bottom: 1em;
-    color: #0f0; /* Matches consistent heading style */
+    color: #0f0; /* Consistent neon green for headings */
 }
 
 /* Developer Grid */
 .developer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted for smaller cards */
-    gap: 1.5em; /* Reduced gap for tighter layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted for smaller cards */
+    gap: 1em; /* Tighter spacing for a clean layout */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -50,7 +57,7 @@ body {
 /* Developer Card */
 .developer-card {
     background-color: rgba(0, 0, 0, 0.9);
-    padding: 1.5em; /* Reduced padding for compact design */
+    padding: 1.5em;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
     text-align: center;
@@ -58,13 +65,13 @@ body {
 }
 
 .developer-card:hover {
-    transform: translateY(-8px); /* Slightly reduced hover effect */
-    box-shadow: 0 12px 25px rgba(0, 255, 0, 0.4);
+    transform: translateY(-5px); /* Subtle hover lift */
+    box-shadow: 0 15px 25px rgba(0, 255, 0, 0.3);
 }
 
 .developer-card img {
-    width: 120px; /* Smaller image size */
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -72,19 +79,19 @@ body {
 }
 
 .developer-card img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1); /* Slight scale effect */
     box-shadow: 0 10px 20px rgba(0, 255, 0, 0.5);
 }
 
 .developer-card h2 {
     font-size: 1.5em;
     margin-bottom: 0.5em;
-    color: #fff;
+    color: #fff; /* White for better contrast */
 }
 
 .developer-card p {
-    font-size: 0.9em;
-    color: #aaa;
+    font-size: 1em;
+    color: #ddd;
     margin-bottom: 1em;
     line-height: 1.6;
 }
@@ -98,24 +105,38 @@ body {
 
 .developer-card a:hover {
     color: lime;
+    text-shadow: 0 0 5px #0f0;
 }
 
 /* Footer */
 footer {
     background: rgba(0, 0, 0, 0.8);
     text-align: center;
-    padding: 1em;
-    position: relative;
-    bottom: 0;
+    padding: 1.5em;
+    font-size: 0.9em;
+    color: #0f0 !important; /* Enforces neon green text */
     width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 255, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #0f0 !important; /* Neon green for links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: lime;
+    text-shadow: 0 0 5px #0f0;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .developer-section {
-        padding: 2em 1em; /* Further reduced padding for small screens */
-    }
-
     .developer-section h1 {
         font-size: 2em;
     }
@@ -129,8 +150,8 @@ footer {
     }
 
     .developer-card img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
 
     .developer-card h2 {
@@ -138,6 +159,6 @@ footer {
     }
 
     .developer-card p {
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
 }

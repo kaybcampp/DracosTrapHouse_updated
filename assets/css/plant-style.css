@@ -56,7 +56,7 @@ nav {
     color: #0f0;
 }
 
-/* Hamburger menu styles */
+/* Hamburger menu */
 .hamburger-menu {
     display: none;
     flex-direction: column;
@@ -78,6 +78,7 @@ nav {
         left: 0;
         width: 100%;
         z-index: 9;
+        padding: 1em 0;
     }
 
     .nav-links.nav-active {
@@ -121,9 +122,9 @@ nav {
 
 /* Product Section */
 .product-section {
-    padding: 5em 1em 2em;
+    padding: 4em 1em 1em; /* Adjusted padding to move closer to the menu */
     text-align: center;
-    margin-top: 60px;
+    margin-top: 50px; /* Ensure space from the menu */
 }
 
 .product-container {
@@ -138,7 +139,7 @@ nav {
 
 /* Main Product Image */
 .product-main-image img {
-    max-width: 400px;
+    max-width: 350px; /* Reduced size for better space optimization */
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
@@ -155,12 +156,12 @@ nav {
 .product-thumbnails {
     display: flex;
     justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
+    gap: 0.5em; /* Reduced gap between thumbnails */
+    margin-top: 0.5em; /* Reduced margin to save space */
 }
 
 .product-thumbnails img {
-    width: 60px;
+    width: 50px; /* Reduced thumbnail size */
     height: auto;
     cursor: pointer;
     border-radius: 5px;
@@ -174,36 +175,36 @@ nav {
 
 /* Product Details */
 .product-details {
-    max-width: 500px;
+    max-width: 450px; /* Adjusted width for a balanced layout */
     background-color: rgba(0, 0, 0, 0.85);
-    padding: 1.5em;
+    padding: 1em; /* Reduced padding for a compact look */
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     text-align: left;
 }
 
 .product-details h1 {
-    font-size: 2em;
+    font-size: 1.8em;
     color: #0f0;
     margin-bottom: 0.5em;
 }
 
 .product-details .price {
-    font-size: 1.5em;
+    font-size: 1.3em; /* Adjusted font size for better fit */
     color: #fff;
     font-weight: bold;
     margin-bottom: 0.5em;
 }
 
 .product-details .free-shipping {
-    font-size: 1em;
+    font-size: 0.9em;
     color: #aaa;
     text-transform: uppercase;
     margin-bottom: 1em;
 }
 
 .product-details .amazon-rating {
-    font-size: 1.2em;
+    font-size: 1em;
     color: #ffd700;
     margin-top: 1em;
 }
@@ -222,12 +223,12 @@ nav {
 
 /* Back to Shop Button */
 .back-to-shop {
-    margin-top: 2em;
-    padding: 0.75em 1.5em;
+    margin-top: 1em; /* Reduced margin to save space */
+    padding: 0.5em 1em;
     background-color: #0f0;
     color: #000;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 0.9em;
     border-radius: 5px;
     text-decoration: none;
     text-transform: uppercase;
@@ -245,10 +246,41 @@ nav {
 footer {
     background: rgba(0, 0, 0, 0.8);
     text-align: center;
-    padding: 1em;
+    padding: 1.5em;
     position: relative;
     width: 100%;
     color: #0f0;
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 10px rgba(0, 255, 0, 0.2);
+}
+
+footer .glitch {
+    color: #0f0;
+    font-size: 1.5em;
+    position: relative;
+    display: inline-block;
+    animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+}
+
+footer a {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: lime;
+    text-shadow: 0 0 5px #0f0;
 }
 
 /* Responsive Adjustments */
@@ -258,6 +290,6 @@ footer {
     }
 
     .product-thumbnails img {
-        width: 50px;
+        width: 40px;
     }
 }
