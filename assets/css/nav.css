@@ -11,27 +11,27 @@
 /* Navigation bar */
 nav {
     background: rgba(0, 0, 0, 0.8);
-    padding: 1em 0;
-    text-align: center;
+    padding: 0.8em 1em;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Ensure the nav appears above other elements */
+    z-index: 1000; /* Ensures nav appears above other elements */
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* Navigation links */
 .nav-links {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    gap: 1.5em;
     flex: 1;
 }
 
-nav a {
+.nav-links a {
     color: rgb(205, 205, 205);
     padding: 0.5em 1em;
     text-decoration: none;
@@ -39,10 +39,15 @@ nav a {
     position: relative;
     cursor: pointer;
     text-align: center;
-    line-height: 1.5em;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:not(.cart-link)::before, 
+.nav-links a:hover {
+    color: #0f0;
+}
+
+/* Hover underlines for links */
+.nav-links a:not(.cart-link)::before,
 .nav-links a:not(.cart-link)::after {
     content: '';
     position: absolute;
@@ -62,13 +67,9 @@ nav a {
     bottom: 0;
 }
 
-.nav-links a:not(.cart-link):hover::before, 
+.nav-links a:not(.cart-link):hover::before,
 .nav-links a:not(.cart-link):hover::after {
     transform: scaleX(1);
-}
-
-nav a.active {
-    color: #fff;
 }
 
 /* Dropdown menu */
@@ -79,12 +80,11 @@ nav a.active {
 .dropdown-menu {
     display: none;
     position: absolute;
-    background: rgba(0, 0, 0, 0.9);
     top: 100%;
     left: 0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    width: max-content;
-    text-align: left;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 255, 0, 0.2);
     z-index: 1001;
 }
 
@@ -93,11 +93,12 @@ nav a.active {
     padding: 0.5em 1em;
     color: rgb(205, 205, 205);
     text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-menu a:hover {
-    color: #0f0;
     background: rgba(0, 255, 0, 0.2);
+    color: #0f0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -132,19 +133,13 @@ nav a.active {
     transform: rotate(45deg) translate(-5px, -5px);
 }
 
-/* Ensure proper spacing for fixed nav */
-body {
-    padding-top: 80px; /* Prevent content from overlapping with the fixed nav */
-}
-
-/* Mobile styles */
+/* Mobile-specific styles */
 @media (max-width: 768px) {
     .hamburger-menu {
         display: flex;
         position: absolute;
         top: 10px;
         left: 10px;
-        z-index: 20;
     }
 
     .nav-links {
@@ -156,7 +151,6 @@ body {
         top: 100%;
         left: 0;
         padding: 1em;
-        text-align: center;
     }
 
     .nav-links.nav-active {
@@ -166,9 +160,19 @@ body {
     .dropdown-menu {
         position: static;
         display: none;
+        background-color: rgba(0, 0, 0, 0.9);
     }
 
     .dropdown:hover .dropdown-menu {
         display: block;
     }
+
+    nav {
+        flex-wrap: nowrap;
+    }
+}
+
+/* Ensure proper spacing for fixed nav */
+body {
+    padding-top: 80px; /* Prevent content from overlapping with the fixed nav */
 }

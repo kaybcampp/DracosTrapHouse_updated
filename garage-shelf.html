@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage Paper Towel Holder</title>
+    <link rel="stylesheet" href="/assets/css/nav.css">
+    <link rel="stylesheet" href="/assets/css/shelf-style.css">
+</head>
+
+<body>
+    <!-- Matrix Background Animation -->
+    <div class="matrix-bg"></div>
+
+    <!-- Navigation Placeholder -->
+    <div data-include-html="/nav.html"></div>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="product-container">
+            <!-- Main Product Image and Thumbnails -->
+            <div class="product-images">
+                <div class="product-main-image">
+                    <img src="/assets/images/garageShelf4.jpg" alt="Main Product" id="main-image">
+                </div>
+                <div class="product-thumbnails">
+                    <img src="/assets/images/garageShelf4.jpg" alt="Product Thumbnail 1" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/images/garageShelf1.jpg" alt="Product Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/images/garageShelf3.jpg" alt="Product Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/images/garageShelf2.jpg" alt="Product Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/images/garageShelf5.jpg" alt="Product Thumbnail 5" class="thumbnail" onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="product-details">
+                <h1>Garage Paper Towel Holder</h1>
+                <div class="price">$19.99</div>
+                <div class="free-shipping">+ Free Shipping</div>
+                <div class="amazon-rating">Amazon Rating: ★★½☆☆</div>
+                <p>Versatile garage paper towel holder with a sturdy design, built-in hooks for added storage, and a
+                    sleek finish, perfect for organizing your workspace efficiently.</p>
+                <ul>
+                    <li>Durable shelf with secure bar to prevent falling</li>
+                    <li>Space-saving design ideal for garages, workshops, and storage areas</li>
+                    <li>Built-in paper towel holder and versatile hooks for convenience</li>
+                    <li>Easy to install and supports a variety of tools & supplies</li>
+                </ul>
+
+                <!-- Amazon Buy Now Button -->
+                <script async fetchpriority="high" src="https://code.buywithprime.amazon.com/bwp.v1.js"></script>
+                <div id="amzn-buy-now" data-site-id="9bwvxpevcd" data-widget-id="w-oCpdzLyGfl5wnP1aa7ghn5" data-sku="IR-4KW3-CER5"></div>
+
+                <!-- Buy With Prime Cart Widget -->
+                <div id="cart-summary" class="cart-summary">
+                    <div id="amzn-bwp-cart" data-site-id="9bwvxpevcd" data-widget-id="w-oCpdzLyGfl5wnP1aa7ghn5"></div>
+                </div>
+
+                <!-- Back to Shop Button -->
+                <a href="/shop.html" class="back-to-shop">Back to Shop</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DracosTrapHouse. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to Include Navigation -->
+    <script>
+        async function includeHTML() {
+            const elements = document.querySelectorAll("[data-include-html]");
+            for (const el of elements) {
+                const file = el.getAttribute("data-include-html");
+                try {
+                    const response = await fetch(file);
+                    if (response.ok) {
+                        el.innerHTML = await response.text();
+                        const hamburgerMenu = document.querySelector('.hamburger-menu');
+                        const navLinks = document.querySelector('.nav-links');
+                        if (hamburgerMenu && navLinks) {
+                            hamburgerMenu.addEventListener('click', () => {
+                                navLinks.classList.toggle('nav-active');
+                                hamburgerMenu.classList.toggle('toggle');
+                            });
+                        }
+                    } else {
+                        console.error(`Failed to load ${file}`);
+                    }
+                } catch (error) {
+                    console.error(`Error loading ${file}:`, error);
+                }
+            }
+        }
+        includeHTML();
+
+        function changeImage(element) {
+            const mainImage = document.getElementById('main-image');
+            mainImage.src = element.src;
+        }
+    </script>
+</body>
+
+</html>

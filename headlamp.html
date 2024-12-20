@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LED Headlamp</title>
+    <link rel="stylesheet" href="/assets/css/nav.css">
+    <link rel="stylesheet" href="/assets/css/headlamp-style.css">
+</head>
+
+<body>
+    <!-- Matrix Background Animation -->
+    <div class="matrix-bg"></div>
+
+    <!-- Navigation Placeholder -->
+    <div data-include-html="/nav.html"></div>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="product-container">
+            <!-- Main Product Image and Thumbnails -->
+            <div class="product-images">
+                <div class="product-main-image">
+                    <img src="/assets/images/main1.jpeg" alt="Main Headlamp Image" id="main-image">
+                </div>
+                <div class="product-thumbnails">
+                    <img src="/assets/images/main1.jpeg" alt="Thumbnail 1" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/images/specifications.jpg" alt="Thumbnail 2" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/images/lightingModes.jpg" alt="Thumbnail 3" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/images/rechargable.jpg" alt="Thumbnail 4" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/images/waterResistant.jpg" alt="Thumbnail 5" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/images/lightRange.jpg" alt="Thumbnail 6" class="thumbnail" onclick="changeImage(this)">
+                    <img src="/assets/images/included.jpg" alt="Thumbnail 7" class="thumbnail" onclick="changeImage(this)">
+                </div>
+            </div>
+
+            <!-- Product Details -->
+            <div class="product-details">
+                <h1>LED Headlamp</h1>
+                <div class="price">$8.99</div>
+                <div class="free-shipping">+ Free Shipping</div>
+                <div class="amazon-rating">Amazon Rating: ☆☆☆☆☆ (No Reviews Yet)</div>
+                <p>Illuminate your surroundings with this powerful LED headlamp. Perfect for hands-free lighting in dark environments.</p>
+                <ul>
+                    <li>Adjustable brightness modes</li>
+                    <li>Rechargeable with long battery life</li>
+                    <li>Comfortable, secure head strap</li>
+                    <li>Great for work, outdoor adventures, and emergencies</li>
+                </ul>
+
+                <!-- Amazon Buy Now Button -->
+                <script async fetchpriority="high" src="https://code.buywithprime.amazon.com/bwp.v1.js"></script>
+                <div id="amzn-buy-now" data-site-id="9bwvxpevcd" data-widget-id="w-oCpdzLyGfl5wnP1aa7ghn5" data-sku="ML-VU35-M2NZ"></div>
+
+                <!-- Buy With Prime Cart Widget -->
+                <div id="cart-summary" class="cart-summary">
+                    <div id="amzn-bwp-cart" data-site-id="9bwvxpevcd" data-widget-id="w-oCpdzLyGfl5wnP1aa7ghn5"></div>
+                </div>
+
+                <!-- Back to Shop Button -->
+                <a href="/shop.html" class="back-to-shop">Back to Shop</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DracosTrapHouse. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript to Include Navigation -->
+    <script>
+        async function includeHTML() {
+            const elements = document.querySelectorAll("[data-include-html]");
+            for (const el of elements) {
+                const file = el.getAttribute("data-include-html");
+                try {
+                    const response = await fetch(file);
+                    if (response.ok) {
+                        el.innerHTML = await response.text();
+
+                        // Initialize hamburger menu behavior after loading nav.html
+                        const hamburgerMenu = document.querySelector('.hamburger-menu');
+                        const navLinks = document.querySelector('.nav-links');
+                        if (hamburgerMenu && navLinks) {
+                            hamburgerMenu.addEventListener('click', () => {
+                                navLinks.classList.toggle('nav-active');
+                                hamburgerMenu.classList.toggle('toggle');
+                            });
+                        }
+                    } else {
+                        console.error(`Failed to load ${file}`);
+                    }
+                } catch (error) {
+                    console.error(`Error loading ${file}:`, error);
+                }
+            }
+        }
+        includeHTML();
+
+        function changeImage(element) {
+            const mainImage = document.getElementById('main-image');
+            mainImage.src = element.src;
+        }
+    </script>
+</body>
+
+</html>
