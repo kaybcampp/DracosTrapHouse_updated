@@ -157,18 +157,23 @@ nav {
         display: flex;
     }
 
+    /* Ensure dropdown items are visible inline in the menu */
     .dropdown-menu {
-        position: static;
-        display: none;
-        background-color: rgba(0, 0, 0, 0.9);
-    }
-
-    .dropdown:hover .dropdown-menu {
         display: block;
+        position: static;
+        background: none;
+        box-shadow: none;
+        margin-top: 0;
+        padding: 0;
     }
 
-    nav {
-        flex-wrap: nowrap;
+    .dropdown-menu a {
+        padding-left: 1.5em; /* Indent submenu items */
+    }
+
+    .nav-links a {
+        font-size: 1.2em;
+        margin-bottom: 0.5em;
     }
 }
 
