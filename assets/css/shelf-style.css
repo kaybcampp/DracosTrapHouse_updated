@@ -9,6 +9,9 @@ body {
     color: #fff;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure footer placement */
 }
 
 /* Matrix background */
@@ -101,11 +104,12 @@ nav {
 
 /* Product Section */
 .product-section {
-    padding: 4em 1em 1em; /* Reduced padding to move closer to the menu */
+    flex: 1; /* Ensures the section takes up remaining space */
+    padding: 4em 1em 1em;
     text-align: center;
     background-color: transparent;
     color: #fff;
-    margin-top: 50px; /* Ensure space from the menu */
+    margin-top: 50px;
 }
 
 .product-container {
@@ -120,7 +124,7 @@ nav {
 
 /* Main Product Image */
 .product-main-image img {
-    max-width: 350px; /* Reduced size for better space optimization */
+    max-width: 350px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
@@ -137,12 +141,12 @@ nav {
 .product-thumbnails {
     display: flex;
     justify-content: center;
-    gap: 0.5em; /* Reduced gap between thumbnails */
-    margin-top: 0.5em; /* Reduced margin to save space */
+    gap: 0.5em;
+    margin-top: 0.5em;
 }
 
 .product-thumbnails img {
-    width: 50px; /* Reduced thumbnail size */
+    width: 50px;
     height: auto;
     cursor: pointer;
     border-radius: 5px;
@@ -156,9 +160,9 @@ nav {
 
 /* Product Details */
 .product-details {
-    max-width: 450px; /* Adjusted width for a balanced layout */
+    max-width: 450px;
     background-color: rgba(0, 0, 0, 0.85);
-    padding: 1em; /* Reduced padding for a compact look */
+    padding: 1em;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     text-align: left;
@@ -171,7 +175,7 @@ nav {
 }
 
 .product-details .price {
-    font-size: 1.3em; /* Adjusted font size for better fit */
+    font-size: 1.3em;
     color: #fff;
     font-weight: bold;
     margin-bottom: 0.5em;
@@ -192,7 +196,7 @@ nav {
 
 /* Back to Shop Button */
 .back-to-shop {
-    margin-top: 1em; /* Reduced margin to save space */
+    margin-top: 1em;
     padding: 0.5em 1em;
     background-color: #0f0;
     color: #000;
@@ -213,46 +217,27 @@ nav {
 
 /* Footer */
 footer {
-    background: rgba(0, 0, 0, 0.8); /* Slight transparency for overlay effect */
+    background: rgba(0, 0, 0, 0.8);
     text-align: center;
-    padding: 1.5em; /* Increased padding for more space */
-    position: fixed;
-    bottom: 0;
+    padding: 1em;
     width: 100%;
-    color: #0f0; /* Neon green text color */
-    font-size: 0.9rem; /* Slightly smaller font for footer text */
-    box-shadow: 0 -2px 10px rgba(0, 255, 0, 0.2); /* Subtle neon shadow effect */
-}
-
-/* Glitch effect for footer title */
-footer .glitch {
     color: #0f0;
-    font-size: 1.5em; /* Adjusted size for footer */
-    position: relative;
-    display: inline-block;
-    animation: glitch 1s infinite;
-}
-
-@keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(2px, -2px); }
-    60% { transform: translate(-2px, -2px); }
-    80% { transform: translate(2px, 2px); }
-    100% { transform: translate(0); }
+    font-size: 0.9rem;
+    box-shadow: 0 -2px 10px rgba(0, 255, 0, 0.2);
+    margin-top: auto; /* Ensures the footer stays below the content */
 }
 
 /* Footer links */
 footer a {
-    color: #0f0; /* Same neon green for consistency */
+    color: #0f0;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 footer a:hover {
-    color: lime; /* Lighter green on hover */
-    text-shadow: 0 0 5px #0f0; /* Glow effect on hover */
+    color: lime;
+    text-shadow: 0 0 5px #0f0;
 }
 
 /* Responsive Adjustments */
@@ -266,6 +251,7 @@ footer a:hover {
     }
 
     .product-thumbnails img {
-        width: 40px; /* Further reduce thumbnail size for mobile */
+        width: 40px;
     }
 }
+

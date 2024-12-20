@@ -105,6 +105,22 @@
             const mainImage = document.getElementById('main-image');
             mainImage.src = element.src;
         }
+
+        // Adjust footer position dynamically
+        function adjustFooter() {
+            const footer = document.querySelector('footer');
+            const contentHeight = document.body.offsetHeight;
+            const viewportHeight = window.innerHeight;
+
+            if (contentHeight < viewportHeight) {
+                footer.style.position = 'fixed';
+            } else {
+                footer.style.position = 'relative';
+            }
+        }
+
+        window.addEventListener('load', adjustFooter);
+        window.addEventListener('resize', adjustFooter);
     </script>
 </body>
 
