@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Navigation</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
 </head>
 
 <body>
@@ -20,9 +20,13 @@
         <!-- Navigation Links -->
         <div class="nav-links">
             <a href="home.html" class="nav-link">Home</a>
-            <a href="home.html#about" class="nav-link">About Us</a>
-            <a href="terms-and-conditions.html" class="nav-link">Terms & Conditions</a>
-            <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
+            <div class="dropdown">
+                <a href="home.html#about" class="nav-link">About Us</a>
+                <div class="dropdown-menu">
+                    <a href="terms-and-conditions.html" class="dropdown-item">Terms & Conditions</a>
+                    <a href="privacy-policy.html" class="dropdown-item">Privacy Policy</a>
+                </div>
+            </div>
             <a href="shop.html" class="nav-link">Shop</a>
             <a href="contact-us.html" class="nav-link">Contact Us</a>
             <a href="our-developers.html" class="nav-link">Our Developers</a>
@@ -40,7 +44,7 @@
             hamburgerMenu.classList.toggle('toggle');
         }
 
-        // Close menu when clicking any link
+        // Close menu when clicking any link in mobile view
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 const navLinks = document.querySelector('.nav-links');

@@ -1,11 +1,14 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/* Navigation container placeholder */
-#nav-placeholder {
-    width: 100%;
+/* General Styling */
+body {
     margin: 0;
-    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 /* Navigation bar */
@@ -15,20 +18,21 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Ensures nav appears above other elements */
+    z-index: 10;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-/* Navigation links */
+/* Navigation Links */
 .nav-links {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5em;
-    flex: 1;
+    text-align: center;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -36,9 +40,7 @@ nav {
     padding: 0.5em 1em;
     text-decoration: none;
     font-weight: bold;
-    position: relative;
     cursor: pointer;
-    text-align: center;
     transition: color 0.3s ease;
 }
 
@@ -46,33 +48,7 @@ nav {
     color: #0f0;
 }
 
-/* Hover underlines for links */
-.nav-links a:not(.cart-link)::before,
-.nav-links a:not(.cart-link)::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: #0f0;
-    left: 0;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.nav-links a:not(.cart-link)::before {
-    top: 0;
-}
-
-.nav-links a:not(.cart-link)::after {
-    bottom: 0;
-}
-
-.nav-links a:not(.cart-link):hover::before,
-.nav-links a:not(.cart-link):hover::after {
-    transform: scaleX(1);
-}
-
-/* Dropdown menu */
+/* Dropdown Menu */
 .dropdown {
     position: relative;
 }
@@ -88,12 +64,17 @@ nav {
     z-index: 1001;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 .dropdown-menu a {
     display: block;
     padding: 0.5em 1em;
     color: rgb(205, 205, 205);
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: left;
 }
 
 .dropdown-menu a:hover {
@@ -101,11 +82,7 @@ nav {
     color: #0f0;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
-/* Hamburger menu styles */
+/* Hamburger Menu */
 .hamburger-menu {
     display: none;
     flex-direction: column;
@@ -133,7 +110,7 @@ nav {
     transform: rotate(45deg) translate(-5px, -5px);
 }
 
-/* Mobile-specific styles */
+/* Mobile-Specific Styles */
 @media (max-width: 768px) {
     .hamburger-menu {
         display: flex;
@@ -146,38 +123,38 @@ nav {
         display: none;
         flex-direction: column;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(0, 0, 0, 0.95);
         position: absolute;
         top: 100%;
         left: 0;
-        padding: 1em;
+        padding: 1em 0;
+        text-align: center;
     }
 
     .nav-links.nav-active {
         display: flex;
     }
 
-    /* Ensure dropdown items are visible inline in the menu */
     .dropdown-menu {
         display: block;
         position: static;
-        background: none;
+        background: transparent;
         box-shadow: none;
-        margin-top: 0;
-        padding: 0;
     }
 
     .dropdown-menu a {
-        padding-left: 1.5em; /* Indent submenu items */
+        padding-left: 1.5em;
     }
 
     .nav-links a {
-        font-size: 1.2em;
-        margin-bottom: 0.5em;
+        text-align: center;
+        margin: 0.5em 0;
     }
 }
 
-/* Ensure proper spacing for fixed nav */
-body {
-    padding-top: 80px; /* Prevent content from overlapping with the fixed nav */
+/* Desktop-Specific Styles */
+@media (min-width: 769px) {
+    .hamburger-menu {
+        display: none;
+    }
 }
