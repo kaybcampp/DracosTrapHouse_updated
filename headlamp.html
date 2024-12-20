@@ -41,6 +41,11 @@
                 <div class="price">$8.99</div>
                 <div class="free-shipping">+ Free Shipping</div>
                 <div class="amazon-rating">Amazon Rating: ☆☆☆☆☆ (No Reviews Yet)</div>
+                <div class="ebay-rating">
+                    <a href="https://www.ebay.com/fdbk/feedback_profile/morethanareseller?filter=feedback_page%3ARECEIVED_AS_SELLER&q=176583371582&sort=TIME" target="_blank" style="text-decoration: none; color: #0074cc;">
+                        eBay Rating: +2 (click for more)
+                    </a>
+                </div>
                 <p>Illuminate your surroundings with this powerful LED headlamp. Perfect for hands-free lighting in dark environments.</p>
                 <ul>
                     <li>Adjustable brightness modes</li>
@@ -79,8 +84,6 @@
                     const response = await fetch(file);
                     if (response.ok) {
                         el.innerHTML = await response.text();
-
-                        // Initialize hamburger menu behavior after loading nav.html
                         const hamburgerMenu = document.querySelector('.hamburger-menu');
                         const navLinks = document.querySelector('.nav-links');
                         if (hamburgerMenu && navLinks) {
