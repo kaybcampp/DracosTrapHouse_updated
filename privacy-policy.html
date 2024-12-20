@@ -11,7 +11,7 @@
     <!-- Matrix Background Animation -->
     <div class="matrix-bg"></div>
 
-    <!-- Navigation Placeholder -->
+    <!-- Navigation -->
     <div id="nav-placeholder"></div>
 
     <!-- Privacy Policy Section -->
@@ -63,28 +63,24 @@
         async function includeHTML() {
             const placeholder = document.getElementById("nav-placeholder");
             try {
-                const response = await fetch("assets/html/nav.html");
+                const response = await fetch("nav.html");
                 if (response.ok) {
                     placeholder.innerHTML = await response.text();
 
-                    // Reattach navigation menu behavior after loading
-                    addHamburgerMenuBehavior();
+                    // Attach hamburger menu behavior
+                    const hamburgerMenu = document.querySelector('.hamburger-menu');
+                    const navLinks = document.querySelector('.nav-links');
+                    if (hamburgerMenu && navLinks) {
+                        hamburgerMenu.addEventListener('click', () => {
+                            navLinks.classList.toggle('nav-active');
+                            hamburgerMenu.classList.toggle('toggle');
+                        });
+                    }
                 } else {
                     console.error("Failed to load nav.html");
                 }
             } catch (error) {
                 console.error("Error loading navigation:", error);
-            }
-        }
-
-        function addHamburgerMenuBehavior() {
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            const navLinks = document.querySelector('.nav-links');
-            if (hamburgerMenu && navLinks) {
-                hamburgerMenu.addEventListener('click', () => {
-                    navLinks.classList.toggle('nav-active');
-                    hamburgerMenu.classList.toggle('toggle');
-                });
             }
         }
 

@@ -28,17 +28,18 @@ main {
 /* Matrix background */
 .matrix-bg {
     position: fixed;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     z-index: -1;
     background: url('https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif') repeat;
     opacity: 0.2;
+    overflow: hidden;
 }
 
 /* Contact Section */
 .contact-section {
-    margin-top: 100px;
-    padding: 2em;
+    margin-top: 80px; /* Adjusted for better alignment with the navigation */
+    padding: 2em 1em;
     text-align: center;
     background-color: transparent;
 }
@@ -46,22 +47,34 @@ main {
 .contact-section h1 {
     font-size: 2.5em;
     margin-bottom: 1em;
+    color: #0f0;
 }
 
 .contact-section p {
     font-size: 1.2em;
     margin-bottom: 2em;
+    color: #aaa;
+    line-height: 1.6;
 }
 
+/* Contact Form Container */
 .contact-form-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 2em;
+    max-width: 1200px;
     margin: 0 auto;
+    align-items: center;
+    justify-items: center; /* Ensures items are centered horizontally */
 }
 
+@media (min-width: 768px) {
+    .contact-form-container {
+        grid-template-columns: 1fr 1fr; /* Split into two columns on larger screens */
+    }
+}
+
+/* Contact Form */
 .contact-form {
     background-color: #111;
     padding: 2em;
@@ -69,12 +82,18 @@ main {
     box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
     max-width: 500px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the input boxes */
 }
 
 .contact-form label {
     display: block;
     margin-bottom: 0.5em;
     color: #fff;
+    font-weight: bold;
+    width: 100%; /* Aligns labels to the input width */
+    text-align: left;
 }
 
 .contact-form input, 
@@ -86,6 +105,13 @@ main {
     border-radius: 5px;
     background-color: #222;
     color: #fff;
+    font-size: 1em;
+    resize: none; /* Prevent textarea from being resized */
+    box-sizing: border-box; /* Ensures the padding is included in width */
+}
+
+.contact-form textarea {
+    height: 120px;
 }
 
 .submit-btn {
@@ -95,60 +121,72 @@ main {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.submit-btn:hover {
+    background-color: #0b0;
+    transform: scale(1.05);
+}
+
+/* Contact Info */
 .contact-info {
-    max-width: 400px;
-    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Adjust layout for desktop */
-@media (min-width: 769px) {
-    .contact-form-container {
-        justify-content: space-around;
-        align-items: flex-start;
-    }
-
-    .contact-form {
-        margin-right: 2em;
-    }
-
-    .contact-info {
-        margin-left: 0;
-    }
-
-    p {
-        color: #aaa;
-    }
+.contact-info p {
+    font-size: 1em;
+    color: #ddd;
+    line-height: 1.6;
+    text-align: center;
 }
 
+.contact-info a {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: lime;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .contact-form-container {
-        flex-direction: column;
-        align-items: center;
+    .contact-section h1 {
+        font-size: 2em;
+    }
+
+    .contact-section p {
+        font-size: 1em;
     }
 
     .contact-form {
-        margin-bottom: 2em;
-        max-width: 90%;
+        padding: 1em;
     }
 
     .contact-info {
-        max-width: 90%;
         text-align: center;
     }
 
     .contact-info p {
-        color: #aaa;
+        font-size: 0.9em;
     }
 }
 
 /* Footer */
 footer {
-    margin-top: 70px;
     background: rgba(0, 0, 0, 0.8);
     text-align: center;
     padding: 1em;
     font-size: 0.9em;
     color: rgba(255, 255, 255, 0.7);
+    width: 100%;
 }

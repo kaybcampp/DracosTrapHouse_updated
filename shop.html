@@ -45,7 +45,7 @@
             <!-- Product 1: Electric Scrub Brush (Out of Stock) -->
             <div class="product-card">
                 <div class="out-of-stock-overlay">Out of Stock</div>
-                <img src="assets/images/electric spin white bg.jpg" alt="Product 1" class="product-image">
+                <img src="assets/images/electric spin white bg.jpg" alt="Electric Scrub Brush" class="product-image">
                 <div class="product-info">
                     <h3>Electric Scrub Brush</h3>
                     <p>Powerful electric scrub brush with interchangeable heads and long handle, perfect for deep cleaning bathrooms, kitchens, and tough surfaces with ease!</p>
@@ -55,7 +55,7 @@
 
             <!-- Product 2: Garage Paper Towel Holder -->
             <div class="product-card">
-                <img src="assets/images/garageShelf4.jpg" alt="Product 2" class="product-image">
+                <img src="assets/images/garageShelf4.jpg" alt="Garage Paper Towel Holder" class="product-image">
                 <div class="product-info">
                     <h3>Garage Paper Towel Holder</h3>
                     <p>Versatile garage paper towel holder with a sturdy design, built-in hooks for added storage, and a sleek finish, perfect for organizing your workspace efficiently.</p>
@@ -65,7 +65,7 @@
 
             <!-- Product 3: Plant Seeding Tray -->
             <div class="product-card">
-                <img src="assets/images/plantTray1.jpg" alt="Product 3" class="product-image">
+                <img src="assets/images/plantTray1.jpg" alt="Plant Seeding Tray" class="product-image">
                 <div class="product-info">
                     <h3>Plant Seeding Tray</h3>
                     <p>Versatile plant tray perfect for indoor and outdoor use, ensuring clean and organized gardening spaces. Durable, eco-friendly, and ideal for water drainage control.</p>
@@ -75,7 +75,7 @@
 
             <!-- Product 4: LED Headlamp -->
             <div class="product-card">
-                <img src="assets/images/main1.jpeg" alt="Product 4" class="product-image">
+                <img src="assets/images/main1.jpeg" alt="LED Headlamp" class="product-image">
                 <div class="product-info">
                     <h3>LED Headlamp</h3>
                     <p>Illuminate your surroundings with this powerful LED headlamp. Perfect for hands-free lighting in dark environments.</p>
@@ -94,7 +94,7 @@
     <script>
         // Dynamically load the nav.html file
         async function loadNav() {
-            const response = await fetch('assets/html/nav.html');
+            const response = await fetch('nav.html');
             if (response.ok) {
                 const navHTML = await response.text();
                 document.getElementById('nav-placeholder').innerHTML = navHTML;

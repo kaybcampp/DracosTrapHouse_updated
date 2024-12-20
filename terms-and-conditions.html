@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms and Conditions - DracosTrapHouse</title>
+    <link rel="stylesheet" href="assets/css/nav.css">
     <link rel="stylesheet" href="assets/css/terms-and-conditions.css">
 </head>
 <body>
@@ -11,23 +12,7 @@
     <div class="matrix-bg"></div>
 
     <!-- Navigation -->
-    <nav>
-        <div class="hamburger-menu" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <div class="nav-links">
-            <a href="home.html">Home</a>
-            <a href="home.html#about">About Us</a>
-            <a href="shop.html">Shop</a>
-            <a href="contact-us.html">Contact Us</a>
-            <a href="our-developers.html">Our Developers</a>
-            <a href="terms-and-conditions.html">Terms & Conditions</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-        </div>
-    </nav>
-    
+    <div data-include-html="nav.html"></div>
 
     <!-- Terms and Conditions Section -->
     <section class="terms-section">
@@ -60,19 +45,28 @@
     <footer>
         <p>&copy; 2024 DracosTrapHouse. All rights reserved.</p>
     </footer>
+
+    <!-- Script to dynamically load navigation -->
     <script>
+        async function includeHTML() {
+            const elements = document.querySelectorAll("[data-include-html]");
+            for (const el of elements) {
+                const file = el.getAttribute("data-include-html");
+                const response = await fetch(file);
+                if (response.ok) {
+                    el.innerHTML = await response.text();
+                } else {
+                    console.error(`Failed to load navigation from ${file}`);
+                }
+            }
+        }
+        includeHTML();
+
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
             const hamburgerMenu = document.querySelector('.hamburger-menu');
             navLinks.classList.toggle('nav-active');
             hamburgerMenu.classList.toggle('toggle');
-        }
-
-        function closeMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            navLinks.classList.remove('nav-active');
-            hamburgerMenu.classList.remove('toggle');
         }
     </script>
 </body>
